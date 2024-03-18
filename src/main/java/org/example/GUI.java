@@ -5,6 +5,7 @@ import javax.swing.*;
 public class GUI {
 
     JFrame window;
+    JTextArea textArea;
 
     public static void main(String[] args) {
 
@@ -13,6 +14,7 @@ public class GUI {
 
     public GUI() {
         createWindow();
+        crateTextArea();
 
         window.setVisible(true);
     }
@@ -22,6 +24,13 @@ public class GUI {
         window.setSize(800, 600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
+    public void crateTextArea() {
+        textArea = new JTextArea();
+        window.add(textArea);
+    }
+
+
 
 
 }
