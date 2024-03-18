@@ -6,6 +6,7 @@ public class GUI {
 
     JFrame window;
     JTextArea textArea;
+    JScrollPane scrollPane;
 
     public static void main(String[] args) {
 
@@ -27,7 +28,13 @@ public class GUI {
 
     public void crateTextArea() {
         textArea = new JTextArea();
-        window.add(textArea);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+
+        scrollPane = new JScrollPane(
+                textArea, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        window.add(scrollPane);
     }
 
 
