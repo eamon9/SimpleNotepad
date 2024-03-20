@@ -10,6 +10,7 @@ public class GUI implements ActionListener {
     // TEXT AREA
     JTextArea textArea;
     JScrollPane scrollPane;
+    boolean wordWrapOn = false;
     // TOP MENU BAR
     JMenuBar menuBar;
     JMenu menuFile, menuEdit, menuFormat, menuColor;
@@ -34,6 +35,10 @@ public class GUI implements ActionListener {
         createMenyBar();
         createFileMenu();
         createFormatMenu();
+
+        format.selectedFont = "Arial";
+        format.createFont(16);
+        format.wordWrap();
 
         window.setVisible(true);
     }
@@ -127,7 +132,7 @@ public class GUI implements ActionListener {
         iFontSize24.addActionListener(this);
         iFontSize28.addActionListener(this);
 
-        iWrap.setActionCommand("World Wrap");
+        iWrap.setActionCommand("Word Wrap");
         iFontArial.setActionCommand("Arial");
         iFontCSMS.setActionCommand("Comic Sans MS");
         iFontTNR.setActionCommand("Times New Roman");
@@ -159,21 +164,21 @@ public class GUI implements ActionListener {
         String command = e.getActionCommand();
 
         switch (command) {
-            case "New":
-                file.newFile();
-                break;
-            case "Open":
-                file.openFile();
-                break;
-            case "SaveAs":
-                file.saveAsFile();
-                break;
-            case "Save":
-                file.saveFile();
-                break;
-            case "Exit":
-                file.exit();
-                break;
+            case "New" -> file.newFile();
+            case "Open" -> file.openFile();
+            case "SaveAs" -> file.saveAsFile();
+            case "Save" -> file.saveFile();
+            case "Exit" -> file.exit();
+            case "Word Wrap" -> format.wordWrap();
+            case "Arial" -> format.setFont(command);
+            case "Comic Sans MS" -> format.setFont(command);
+            case "Times New Roman" -> format.setFont(command);
+            case "size8" -> format.createFont(8);
+            case "size12" -> format.createFont(12);
+            case "size16" -> format.createFont(16);
+            case "size20" -> format.createFont(20);
+            case "size24" -> format.createFont(24);
+            case "size28" -> format.createFont(28);
         }
     }
 }
