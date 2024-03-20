@@ -88,4 +88,8 @@ public class Function_File {
         }
     }
 
+    public void exit() {
+        System.exit(0);
+    }
+
 }
